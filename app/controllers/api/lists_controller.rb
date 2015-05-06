@@ -1,4 +1,4 @@
-class ListsController < ApplicationController
+class Api::ListsController < ApplicationController
   before_action :set_list, only: [:show, :update, :destroy]
 
   def index
