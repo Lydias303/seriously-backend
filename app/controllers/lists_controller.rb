@@ -1,34 +1,26 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :update, :destroy]
 
-  # GET /lists
-  # GET /lists.json
   def index
     @lists = List.all
 
     render json: @lists
   end
 
-  # GET /lists/1
-  # GET /lists/1.json
   def show
     render json: @list
   end
 
-  # POST /lists
-  # POST /lists.json
   def create
     @list = List.new(list_params)
 
     if @list.save
-      render json: @list, status: :created, location: @list
+      render json: @list, status: :created
     else
       render json: @list.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /lists/1
-  # PATCH/PUT /lists/1.json
   def update
     @list = List.find(params[:id])
 
@@ -39,8 +31,6 @@ class ListsController < ApplicationController
     end
   end
 
-  # DELETE /lists/1
-  # DELETE /lists/1.json
   def destroy
     @list.destroy
 
